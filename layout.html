@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Wolf Central{% endblock %}</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="branding">
+            <img src="titlelogo.png" alt="Wolf Central Logo">
+            <div class="title">Wolf Central</div>
+        </div>
+        {% include 'navigation.html' %}
+    </header>
+
+    <main class="content-wrapper">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bottom-section">
+        <h3>University of Wolverhampton</h3>
+        <h3>Links</h3>
+        <h3>Contact Us</h3>
+    </footer>
+
+</body>
+</html>

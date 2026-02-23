@@ -1,0 +1,129 @@
+/* Core Layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    padding-bottom: 220px; 
+}
+
+/* Header Section */
+.top-bar {
+    background-color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.branding {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.top-bar img {
+    height: 30px; 
+}
+
+.title {
+    font-size: 28px; 
+    font-weight: bold;
+    color: #000;
+}
+
+/* Wavy Navy Section */
+.hero-blue-section {
+    background-color: #182d44; /* Navy Blue */
+    padding: 80px 20px 180px 20px; 
+    width: 100%;
+    box-sizing: border-box;
+    /* Smooth curved bottom */
+    clip-path: ellipse(100% 55% at 48% 44%);
+}
+
+.welcome-area {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.welcome-area h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #ffffff; 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.welcome-area p {
+    font-size: 1.3rem;
+    color: #ffffff; 
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #002147;
+    padding: 14px 30px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin: 10px;
+    border: 2px solid #ffffff;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.btn.secondary:hover {
+    background-color: #ffffff;
+    color: #002147;
+}
+
+/* Navigation */
+#navigation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+}
+
+#navigation li a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+/* Footer Section */
+.bottom-section {
+    background-color: #182d44;
+    color: #fff;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 10;
+}
