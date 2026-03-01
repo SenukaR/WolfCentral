@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}Sign Up | Wolf Central{% endblock %}
+
+{% block content %}
+<div class="form-container">
+  <h2>Create Your Student Account</h2>
+
+  {% if message %}
+  <p style="color: #007bff; font-weight: bold;">{{ message }}</p>
+  {% endif %}
+
+  <form action="signup.php" method="post" class="student-form">
+    <div class="form-group">
+      <label for="student_id">Student ID Number</label>
+      <input type="text" id="student_id" name="student_id" required>
+    </div>
+    <div class="form-group">
+      <label for="email">University Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit" class="btn-submit">Register</button>
+  </form>
+  <p class="form-footer">Already have an account? <a href="login.php">Login here</a></p>
+</div>
+{% endblock %}

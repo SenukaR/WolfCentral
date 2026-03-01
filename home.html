@@ -7,9 +7,14 @@
     <section class="welcome-area">
         <h1>Welcome to Wolf Central</h1>
         <p>The central hub for University of Wolverhampton students.</p>
-        
+
         <div class="action-buttons">
-            <a href="#" class="btn">Sign Up</a>
+            {% if session.student_id %}
+            <a href="#" class="btn">View My Dashboard</a>
+            {% else %}
+            <a href="signup.php" class="btn">Sign Up</a>
+            {% endif %}
+
             <a href="#" class="btn secondary">Explore</a>
         </div>
     </section>

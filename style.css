@@ -5,21 +5,23 @@ body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
     color: #333;
-    padding-bottom: 220px; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Keeps footer at bottom on short pages */
 }
 
 /* Header Section */
 .top-bar {
     background-color: #fff;
-    padding: 10px 40px; 
+    padding: 10px 40px;
     display: flex;
-    flex-direction: row;  
-    justify-content: space-between; 
-    align-items: center; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid #eee;
 }
 
-/* Styling for the clickable logo/title area */
 .logo-link {
     text-decoration: none;
     color: inherit;
@@ -32,17 +34,17 @@ body {
 }
 
 .top-bar img {
-    height: 60px; 
+    height: 60px;
     width: auto;
 }
 
 .title {
-    font-size: 28px; 
+    font-size: 28px;
     font-weight: bold;
     color: #000;
 }
 
-/* Navigation Buttons Styling */
+/* Navigation */
 #navigation {
     list-style: none;
     padding: 0;
@@ -55,18 +57,25 @@ body {
     text-decoration: none;
     color: #444;
     font-weight: 600;
-    font-size: 19px; /* Slightly larger font size */
+    font-size: 19px;
     transition: color 0.2s ease-in-out;
 }
 
 #navigation li a:hover {
-    color: #007bff; /* Bright Blue */
+    color: #007bff;
+    /* Bright Blue Hover */
 }
 
-/* Wavy Navy Section */
+/* Main Content Area */
+.content-wrapper {
+    flex: 1;
+    /* Pushes footer down */
+}
+
+/* Hero Wavy Section */
 .hero-blue-section {
-    background-color: #182d44; 
-    padding: 80px 20px 180px 20px; 
+    background-color: #182d44;
+    padding: 80px 20px 180px 20px;
     width: 100%;
     box-sizing: border-box;
     clip-path: ellipse(100% 55% at 48% 44%);
@@ -81,18 +90,18 @@ body {
 .welcome-area h1 {
     font-size: 3rem;
     margin-bottom: 10px;
-    color: #ffffff; 
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .welcome-area p {
     font-size: 1.3rem;
-    color: #ffffff; 
+    color: #ffffff;
     margin-bottom: 30px;
     opacity: 0.95;
 }
 
-/* Hero Section Action Buttons */
+/* Hero Buttons */
 .btn {
     display: inline-block;
     background-color: #ffffff;
@@ -123,17 +132,80 @@ body {
     color: #182d44;
 }
 
-/* Footer Section */
+/* Footer Section - Scrolling behavior */
 .bottom-section {
     background-color: #182d44;
     color: #fff;
     padding: 60px 20px;
     display: flex;
     justify-content: space-around;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    text-align: center;
+    position: relative;
     width: 100%;
     box-sizing: border-box;
-    z-index: 10;
+    margin-top: 50px;
+}
+
+.bottom-section h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.bottom-section p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Navigation Dropdown Container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* The clickable username */
+.dropbtn {
+    color: #444;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Hidden Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    /* Aligns menu to the right edge of the name */
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    text-align: left;
+}
+
+/* Hover effect on dropdown links */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #007bff;
+}
+
+/* Red text for Logout */
+.dropdown-content a.logout-link {
+    color: #ff4d4d;
+    border-top: 1px solid #eee;
+}
+
+/* Show the menu when hovering over the parent <li> */
+.dropdown:hover .dropdown-content {
+    display: block;
 }
