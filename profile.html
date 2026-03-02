@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}My Profile | Wolf Central{% endblock %}
+
+{% block content %}
+<div class="form-container" style="max-width: 600px; text-align: left;">
+    <h2 style="text-align: center;">Account Details</h2>
+    <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 20px;">
+
+    <div class="profile-info">
+        <p><strong>Student ID:</strong> {{ user.student_id }}</p>
+        <p><strong>University Email:</strong> {{ user.email }}</p>
+        <p><strong>Account Created:</strong> {{ user.created_at|date("d M Y") }}</p>
+    </div>
+
+    <div style="margin-top: 30px; text-align: center;">
+        <a href="index.php" class="btn-submit" style="text-decoration: none; display: inline-block; width: auto; padding: 10px 20px;">Back to Home</a>
+    </div>
+</div>
+{% endblock %}
