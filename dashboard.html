@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard | Wolf Central{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h1>Student Dashboard</h1>
+    <p>Welcome back to Wolf Central.</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <h4>Booked Events</h4>
+      <p>{{ dashboard.booked_count }}</p>
+    </div>
+
+    <div class="stat-box">
+      <h4>Account Status</h4>
+      <p>Active</p>
+    </div>
+
+    <div class="stat-box">
+      <h4>Next Event</h4>
+      {% if dashboard.next_event %}
+      <p style="font-size: 1rem;">{{ dashboard.next_event.title }}</p>
+      {% else %}
+      <p style="font-size: 1rem;">None</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="dashboard-grid">
+    <div class="dashboard-card">
+      <h3>My Account</h3>
+      <p><strong>Email:</strong> {{ session.email }}</p>
+      <p><strong>Student ID:</strong> {{ session.student_id }}</p>
+      <a href="profile.php" class="dashboard-link">View Profile</a>
+    </div>
+
+    <div class="dashboard-card">
+      <h3>Quick Actions</h3>
+      <p><a href="events.php" class="dashboard-link">Browse Events</a></p>
+      <p><a href="profile.php" class="dashboard-link">Account Details</a></p>
+      <p><a href="logout.php" class="dashboard-link">Logout</a></p>
+    </div>
+
+    <div class="dashboard-card">
+      <h3>Announcements</h3>
+      <p>Welcome to Wolf Central.</p>
+      <p>Check your booked events and university updates regularly.</p>
+      <p>More student services can be added here later.</p>
+    </div>
+
+    <div class="dashboard-card dashboard-card-wide">
+      <h3>My Upcoming Events</h3>
+
+      {% if dashboard.booked_events %}
+      <ul class="dashboard-list">
+        {% for event in dashboard.booked_events %}
+        <li>
+          <strong>{{ event.title }}</strong><br>
+          {{ event.event_date|date("d M Y, H:i") }} — {{ event.location }}
+        </li>
+        {% endfor %}
+      </ul>
+      <a href="events.php" class="dashboard-link">View All Events</a>
+      {% else %}
+      <p>You have not booked any events yet.</p>
+      <a href="events.php" class="dashboard-link">Browse Events</a>
+      {% endif %}
+    </div>
+
+    <div class="dashboard-card">
+      <h3>Transport</h3>
+      <p>View travel information and useful transport guidance.</p>
+      <a href="transport.php" class="dashboard-link">Open Transport</a>
+    </div>
+
+    <div class="dashboard-card">
+      <h3>Rewards</h3>
+      <p>Student rewards and special offers can be added here.</p>
+      <a href="rewards.php" class="dashboard-link">View Rewards</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

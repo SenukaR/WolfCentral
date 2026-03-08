@@ -9,14 +9,55 @@
         <p>The central hub for University of Wolverhampton students.</p>
 
         <div class="action-buttons">
-            {% if session.student_id %}
-            <a href="#" class="btn">View My Dashboard</a>
+            {% if session.user_id %}
+            <a href="dashboard.php" class="btn btn-icon">
+                Dashboard
+                <img src="Images/arrow-icon.png" alt="Arrow icon" class="btn-icon-img">
+            </a>
             {% else %}
-            <a href="signup.php" class="btn">Sign Up</a>
+            <a href="signup.php" class="btn btn-icon">
+                Sign Up
+                <img src="Images/arrow-icon.png" alt="Arrow icon" class="btn-icon-img">
+            </a>
             {% endif %}
 
-            <a href="#" class="btn secondary">Explore</a>
+            <a href="#explore-university" class="btn secondary">
+                Explore
+            </a>
         </div>
     </section>
 </div>
+
+<section id="explore-university" class="explore-section">
+    <div class="explore-header">
+        <h2>Explore Our University</h2>
+        <p>Discover student opportunities, travel information, and campus benefits.</p>
+    </div>
+
+    <div class="explore-grid">
+        <a href="events.php" class="explore-card">
+            <img src="Images/events-card.png" alt="Event Schedules">
+            <div class="explore-card-content">
+                <h3>Event Schedules</h3>
+                <p>Browse university events, activities, and upcoming sessions.</p>
+            </div>
+        </a>
+
+        <a href="transport.php" class="explore-card">
+            <img src="Images/transport-card.png" alt="Transport">
+            <div class="explore-card-content">
+                <h3>Transport</h3>
+                <p>Find useful travel information for getting to and from campus.</p>
+            </div>
+        </a>
+
+        <a href="rewards.php" class="explore-card">
+            <img src="Images/rewards-card.png" alt="Rewards">
+            <div class="explore-card-content">
+                <h3>Rewards</h3>
+                <p>Explore student perks, offers, and future reward features.</p>
+            </div>
+        </a>
+    </div>
+</section>
 {% endblock %}

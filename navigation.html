@@ -1,19 +1,25 @@
 <nav>
     <ul id="navigation">
         <li><a href="index.php">Home</a></li>
-        <li><a href="#">Events</a></li>
-        <li><a href="#">Transport</a></li>
+
+        {% if session.user_id %}
+        <li><a href="dashboard.php">Dashboard</a></li>
+        {% endif %}
+
+        <li><a href="events.php">Events</a></li>
+        <li><a href="transport.php">Transport</a></li>
+        <li><a href="rewards.php">Rewards</a></li>
 
         {% if session.email %}
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">{{ session.email }} ▾</a>
-                <div class="dropdown-content">
-                    <a href="profile.php">My Profile</a>
-                    <a href="logout.php" class="logout-link">Logout</a>
-                </div>
-            </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">{{ session.email }} ▾</a>
+            <div class="dropdown-content">
+                <a href="profile.php">My Profile</a>
+                <a href="logout.php" class="logout-link">Logout</a>
+            </div>
+        </li>
         {% else %}
-            <li><a href="login.php">Sign In</a></li>
+        <li><a href="login.php">Sign In</a></li>
         {% endif %}
     </ul>
 </nav>
