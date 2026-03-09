@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0-dev
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 08, 2026 at 10:32 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost
+-- Generation Time: Mar 09, 2026 at 02:45 PM
+-- Server version: 8.0.44-0ubuntu0.22.04.2
+-- PHP Version: 8.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `events` (
-  `id` int(11) NOT NULL,
-  `title` varchar(150) NOT NULL,
-  `description` text NOT NULL,
+  `id` int NOT NULL,
+  `title` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text COLLATE utf8mb4_general_ci NOT NULL,
   `event_date` datetime NOT NULL,
-  `location` varchar(150) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `location` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -52,10 +52,10 @@ INSERT INTO `events` (`id`, `title`, `description`, `event_date`, `location`, `c
 --
 
 CREATE TABLE `event_bookings` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `event_id` int(11) NOT NULL,
-  `booked_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `event_id` int NOT NULL,
+  `booked_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -65,7 +65,8 @@ CREATE TABLE `event_bookings` (
 INSERT INTO `event_bookings` (`id`, `user_id`, `event_id`, `booked_at`) VALUES
 (1, 2, 1, '2026-03-08 20:03:04'),
 (2, 2, 2, '2026-03-08 20:03:05'),
-(3, 2, 3, '2026-03-08 20:03:06');
+(3, 2, 3, '2026-03-08 20:03:06'),
+(15, 1, 1, '2026-03-09 14:16:23');
 
 -- --------------------------------------------------------
 
@@ -74,11 +75,11 @@ INSERT INTO `event_bookings` (`id`, `user_id`, `event_id`, `booked_at`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `student_id` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `student_id` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -87,7 +88,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `student_id`, `email`, `password`, `created_at`) VALUES
 (1, '2432452', 'S.Ratnayaka@wlv.ac.uk', '$2y$10$Jd46/16O1tD7KKOyxSfo3.aejXGN9a4/gwqjpUF0UL0K1Rm7eztY.', '2026-03-01 23:14:27'),
-(2, '1234', 'test@yahoo.com', '$2y$10$chCWimhvIJ2mJxKWQZD2T.uazmDTtwLBsM3z3Hs2p6NxGSf/IG6q2', '2026-03-08 19:51:37');
+(2, '1234', 'test@yahoo.com', '$2y$10$chCWimhvIJ2mJxKWQZD2T.uazmDTtwLBsM3z3Hs2p6NxGSf/IG6q2', '2026-03-08 19:51:37'),
+(9, '2405377', 'O.Ikwe@wlv.ac.uk', '$2y$12$dgh1/dkQlKF/X8nkzq/xhO.S6wLCUjQ7tbBGnnNDpULhG9G3q6FSS', '2026-03-09 14:29:02');
 
 --
 -- Indexes for dumped tables
@@ -123,19 +125,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `event_bookings`
 --
 ALTER TABLE `event_bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
