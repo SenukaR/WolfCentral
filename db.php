@@ -6,12 +6,12 @@ if ($isLocal) {
     $host = 'localhost';
     $user = 'root';
     $pass = '';
-    $db = 'db2432452';
+    $db = 'db2338980';
 } else {
     $host = 'localhost';
-    $user = '2432452';
-    $pass = 'zhnukv';
-    $db = 'db2432452';
+    $user = '2338980';
+    $pass = 'Donitta12345';
+    $db = 'db2338980';
 }
 
 $mysqli = @new mysqli($host, $user, $pass, $db);
