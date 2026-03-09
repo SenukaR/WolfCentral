@@ -1,21 +1,51 @@
 <nav>
     <ul id="navigation">
-        <li><a href="index.php">Home</a></li>
+        <li>
+            <a href="index.php" class="nav-icon-link">
+                <img src="Images/home-icon.jpg" alt="Home" class="nav-icon">
+                Home
+            </a>
+        </li>
 
         {% if session.user_id %}
-        <li><a href="dashboard.php">Dashboard</a></li>
+        <li>
+            <a href="dashboard.php" class="nav-icon-link">
+                <img src="Images/dashboard-icon.png" alt="Dashboard" class="nav-icon">
+                Dashboard
+            </a>
+        </li>
         {% endif %}
 
-        <li><a href="events.php">Events</a></li>
-        <li><a href="transport.php">Transport</a></li>
-        <li><a href="rewards.php">Rewards</a></li>
+        <li>
+            <a href="events.php" class="nav-icon-link">
+                <img src="Images/events-icon.png" alt="Events" class="nav-icon">
+                Events
+            </a>
+        </li>
+
+        <li>
+            <a href="transport.php" class="nav-icon-link">
+                <img src="Images/transport-icon.png" alt="Transport" class="nav-icon">
+                Transport
+            </a>
+        </li>
+
+        <li>
+            <a href="rewards.php" class="nav-icon-link">
+                <img src="Images/rewards-icon.png" alt="Rewards" class="nav-icon">
+                Rewards
+            </a>
+        </li>
 
         {% if session.email %}
         <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">{{ session.email }} ▾</a>
             <div class="dropdown-content">
                 <a href="profile.php">My Profile</a>
-                <a href="logout.php" class="logout-link">Logout</a>
+                <a href="logout.php" class="logout-link"
+                    onclick="return confirm('Are you sure you want to log out of {{ session.email }}?');">
+                    Logout
+                </a>
             </div>
         </li>
         {% else %}

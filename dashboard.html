@@ -42,7 +42,12 @@
       <h3>Quick Actions</h3>
       <p><a href="events.php" class="dashboard-link">Browse Events</a></p>
       <p><a href="profile.php" class="dashboard-link">Account Details</a></p>
-      <p><a href="logout.php" class="dashboard-link">Logout</a></p>
+      <p>
+        <a href="logout.php" class="dashboard-link"
+          onclick="return confirm('Are you sure you want to log out of {{ session.email }}?');">
+          Logout
+        </a>
+      </p>
     </div>
 
     <div class="dashboard-card">

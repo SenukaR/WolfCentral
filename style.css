@@ -139,7 +139,7 @@ body {
 
 .hero-blue-section {
     background-color: #182d44;
-    padding: 60px 20px 100px 20px;
+    padding: 60px 20px 60px 20px;
     width: 100%;
     box-sizing: border-box;
     clip-path: ellipse(100% 55% at 48% 44%);
@@ -345,6 +345,27 @@ body {
     margin-top: 15px;
 }
 
+.booked-event {
+    border: 2px solid #28a745;
+    background-color: #f3fcf5;
+    position: relative;
+}
+
+.booked-badge {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.booked-event h3 {
+    color: #1e7e34;
+}
+
 /* =========================================
    7. Button Icons
    ========================================= */
@@ -372,7 +393,7 @@ body {
 
 .explore-section {
     max-width: 1200px;
-    margin: 60px auto;
+    margin: 10px auto;
     padding: 0 20px;
 }
 
@@ -547,4 +568,31 @@ body {
     .dashboard-card-wide {
         grid-column: span 1;
     }
+}
+
+/* Remove booking button */
+.remove-btn {
+    background-color: #dc3545;
+}
+
+.remove-btn:hover {
+    background-color: #b02a37;
+}
+
+
+.nav-icon {
+    width: 8px;
+    height: 8px;
+}
+
+#navigation img {
+    width: 30px !important;
+    height: 30px !important;
+    object-fit: contain;
+}
+
+.nav-icon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
