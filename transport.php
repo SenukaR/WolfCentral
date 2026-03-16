@@ -13,19 +13,20 @@ $buses = [
 ];
 
 $trains = [
-  ['station' => 'Wolverhampton', 'departure' => '08:15', 'arrival' => '08:45', 'notes' => 'Direct'],
-  ['station' => 'Coventry > ', 'departure' => '09:30', 'arrival' => '10:10', 'notes' => 'Change at Coventry'],
-  ['station' => 'Coventry', 'departure' => '09:30', 'arrival' => '10:10', 'notes' => '']
+  ['station' => 'Walsall', 'departure' => '08:15', 'arrival' => '08:45', 'notes' => 'Direct'],
+  ['station' => 'Coventry', 'departure' => '09:30', 'arrival' => '10:10', 'notes' => 'Change at Birmingham'],
+  ['station' => 'Birmingham', 'departure' => '09:30', 'arrival' => '10:10', 'notes' => 'Direct']
 ];
 
-$tram = [
-  ['route' => '1', 'schedule' => 'Every 20 mins 08:00–18:00', 'notes' => 'Stops at main buildings'],
-  ['route' => '2', 'schedule' => 'Every 30 mins 08:15–17:45', 'notes' => 'Limited weekends']
+$trams = [
+  ['route' => 'Zone 3-4', 'schedule' => 'Every 20 mins 08:00–18:00', 'notes' => 'Stops at main buildings'],
+  ['route' => 'Zone 2-4', 'schedule' => 'Every 30 mins 08:15–17:45', 'notes' => 'Limited weekends'],
+  ['route' => 'Zone 1-4', 'schedule' => 'Every 12 mins 05:17–19:17', 'notes' => 'Limited weekdays']
 ];
 
 $parking = [
-  ['location' => 'North Parking Lot', 'spaces' => 'X', 'notes' => 'Student permits only'],
-  ['location' => 'South Parking Lot', 'spaces' => 'Y', 'notes' => 'Visitor parking available']
+  ['location' => 'North Parking Lot', 'spaces' => 'X', 'notes' => 'Staff & Resident only'],
+  ['location' => 'South Parking Lot', 'spaces' => 'Y', 'notes' => 'Student & Visitor parking available']
 ];
 
 echo $twig->render("transport.html", [
@@ -33,7 +34,7 @@ echo $twig->render("transport.html", [
   'heading' => 'Transport Information',
   'buses' => $buses,
   'trains' => $trains,
-  'tram' => $tram,
+  'trams' => $trams,
   'parking' => $parking
 ]);
 ?>
