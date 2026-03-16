@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block title %}Transport | Wolf Central{% endblock %}
+
+{% block content %}
+<div class="form-container" style="max-width: 1000px;">
+
+  <h2>{{ heading }}</h2>
+
+  <!-- Buses -->
+  <section class="transport-section">
+    <h3>Bus Services</h3>
+    {% if buses %}
+    <table class="transport-table">
+      <thead>
+        <tr>
+          <th>Route</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+          <th>Frequency</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for bus in buses %}
+        <tr>
+          <td>{{ bus.route }}</td>
+          <td>{{ bus.departure }}</td>
+          <td>{{ bus.arrival }}</td>
+          <td>{{ bus.frequency }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No bus schedules available at the moment.</p>
+    {% endif %}
+  </section>
+
+  <!-- Trains -->
+  <section class="transport-section">
+    <h3>Train Services</h3>
+    {% if trains %}
+    <table class="transport-table">
+      <thead>
+        <tr>
+          <th>Station</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for train in trains %}
+        <tr>
+          <td>{{ train.station }}</td>
+          <td>{{ train.departure }}</td>
+          <td>{{ train.arrival }}</td>
+          <td>{{ train.notes }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No train schedules available at the moment.</p>
+    {% endif %}
+  </section>
+
+  <!-- Campus tram -->
+  <section class="transport-section">
+    <h3>Campus tram</h3>
+    {% if trams %}
+    <ul class="tram-list">
+      {% for tram in trams %}
+      <li>
+        <strong>{{ tram.route }}</strong>: {{ tram.schedule }} — {{ tram.notes }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No tram schedules available.</p>
+    {% endif %}
+  </section>
+
+  <!-- Parking -->
+  <section class="transport-section">
+    <h3>Parking & Campus Access</h3>
+    {% if parking %}
+    <ul class="parking-list">
+      {% for p in parking %}
+      <li>
+        <strong>{{ p.location }}</strong>: {{ p.spaces }} spaces available — {{ p.notes }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>Parking information is currently unavailable.</p>
+    {% endif %}
+  </section>
+
+  <!-- Google Maps Links -->
+  <section class="transport-section">
+    <h3>Campus Maps</h3>
+    <p>Find routes and locations on the <a href="https://www.google.com/maps" target="_blank">interactive map</a>.</p>
+  </section>
+
+</div>
+{% endblock %}
