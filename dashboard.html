@@ -71,8 +71,12 @@
       </ul>
       <a href="events.php" class="dashboard-link">View All Events</a>
       {% else %}
-      <p>You have not booked any events yet.</p>
-      <a href="events.php" class="dashboard-link">Browse Events</a>
+      <div class="empty-state">
+          <img src="Images/events-icon.png" alt="No events" style="width: 50px; opacity: 0.5; margin-bottom: 15px;">
+          <h4>No Bookings Yet</h4>
+          <p>You haven't added any events to your schedule.</p>
+          <a href="events.php" class="btn" style="border: 2px solid #182d44; color: #182d44; padding: 8px 20px; margin-top: 10px;">Browse Events</a>
+      </div>
       {% endif %}
     </div>
 
