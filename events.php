@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+// Sends the Content-Security-Policy header directly
+header("Content-Security-Policy: default-src 'self'; img-src 'self' https://ui-avatars.com data:; frame-src 'self' https://www.google.com; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; frame-ancestors 'self';");
+
 require_once 'db.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
