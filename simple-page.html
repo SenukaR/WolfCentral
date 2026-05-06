@@ -1,10 +1,45 @@
 {% extends "layout.html" %}
 
-{% block title %}{{ title }} | Wolf Central{% endblock %}
+{% block title %}Rewards | Wolf Central{% endblock %}
 
 {% block content %}
-<div class="form-container" style="max-width: 800px;">
-  <h2>{{ heading }}</h2>
-  <p>{{ message }}</p>
+
+<div class="form-container" style="max-width: 700px;">
+
+  <h2>Rewards Centre</h2>
+  <p>Earn points by attending events and redeem rewards below.</p>
+
+  <div class="profile-info" style="margin-top: 30px; text-align: left;">
+    <p><strong>Current Points:</strong> 1250</p>
+    <p><strong>Rewards Claimed:</strong> 3</p>
+    <p><strong>Member Tier:</strong> Gold</p>
+  </div>
+
+  <div class="events-list" style="margin-top: 30px;">
+
+    <div class="event-card">
+      <h3>Free Coffee Voucher</h3>
+      <p>Redeem a free drink from participating campus cafés.</p>
+      <p><strong>Cost:</strong> 250 Points</p>
+      <button class="btn-submit">Claim Reward</button>
+    </div>
+
+    <div class="event-card">
+      <h3>University Hoodie Discount</h3>
+      <p>Get 15% off official university merchandise.</p>
+      <p><strong>Cost:</strong> 500 Points</p>
+      <button class="btn-submit">Claim Reward</button>
+    </div>
+
+    <div class="event-card">
+      <h3>Priority Event Access</h3>
+      <p>Unlock early booking access for selected university events.</p>
+      <p><strong>Cost:</strong> 800 Points</p>
+      <button class="btn-submit">Claim Reward</button>
+    </div>
+
+  </div>
+
 </div>
+
 {% endblock %}
