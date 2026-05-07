@@ -1,0 +1,29 @@
+CREATE TABLE IF NOT EXISTS rewards (
+    reward_id INT AUTO_INCREMENT PRIMARY KEY,
+
+    student_number VARCHAR(20) NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    university_email VARCHAR(100) NOT NULL,
+
+    reward_name VARCHAR(100) NOT NULL,
+    reward_description TEXT,
+    points_required INT NOT NULL,
+    points_earned INT DEFAULT 0,
+
+    reward_category VARCHAR(50),
+    reward_status VARCHAR(30) DEFAULT 'Available',
+
+    date_earned DATE,
+    expiry_date DATE,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO rewards
+(student_number, full_name, university_email, reward_name, reward_description, points_required, points_earned, reward_category, reward_status, date_earned, expiry_date)
+VALUES
+('2338980', 'John Smith', 'john.smith@wlv.ac.uk', 'Free Coffee Voucher', 'Student earns a free coffee after collecting enough points.', 50, 60, 'Food and Drink', 'Earned', '2026-05-10', '2026-06-10'),
+
+('2345678', 'Aisha Khan', 'aisha.khan@wlv.ac.uk', 'Library Printing Credit', 'Reward gives the student extra printing credit for university work.', 100, 85, 'University Services', 'In Progress', NULL, '2026-07-01'),
+
+('2356789', 'Daniel Brown', 'daniel.brown@wlv.ac.uk', 'Student Union Discount', 'Discount reward for use at selected student union events.', 75, 75, 'Events', 'Earned', '2026-05-12', '2026-06-12');
