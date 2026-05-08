@@ -16,6 +16,16 @@
     </div>
 
     <div class="stat-box">
+      <h4>Reward Points</h4>
+      <p>{{ dashboard.points }}</p>
+    </div>
+
+    <div class="stat-box">
+      <h4>Reward Tier</h4>
+      <p>{{ dashboard.member_tier }}</p>
+    </div>
+
+    <div class="stat-box">
       <h4>Account Status</h4>
       <p>Active</p>
     </div>
@@ -41,6 +51,7 @@
     <div class="dashboard-card">
       <h3>Quick Actions</h3>
       <p><a href="events.php" class="dashboard-link">Browse Events</a></p>
+      <p><a href="rewards.php" class="dashboard-link">View Rewards</a></p>
       <p><a href="profile.php" class="dashboard-link">Account Details</a></p>
       <p>
         <a href="logout.php" class="dashboard-link"
@@ -72,10 +83,11 @@
       <a href="events.php" class="dashboard-link">View All Events</a>
       {% else %}
       <div class="empty-state">
-          <img src="Images/events-icon.png" alt="No events" style="width: 50px; opacity: 0.5; margin-bottom: 15px;">
-          <h4>No Bookings Yet</h4>
-          <p>You haven't added any events to your schedule.</p>
-          <a href="events.php" class="btn" style="border: 2px solid #182d44; color: #182d44; padding: 8px 20px; margin-top: 10px;">Browse Events</a>
+        <img src="Images/events-icon.png" alt="No events" style="width: 50px; opacity: 0.5; margin-bottom: 15px;">
+        <h4>No Bookings Yet</h4>
+        <p>You haven't added any events to your schedule.</p>
+        <a href="events.php" class="btn"
+          style="border: 2px solid #182d44; color: #182d44; padding: 8px 20px; margin-top: 10px;">Browse Events</a>
       </div>
       {% endif %}
     </div>
@@ -88,7 +100,8 @@
 
     <div class="dashboard-card">
       <h3>Rewards</h3>
-      <p>Student rewards and special offers can be added here.</p>
+      <p>You currently have <strong>{{ dashboard.points }}</strong> points and your tier is <strong>{{
+          dashboard.member_tier }}</strong>.</p>
       <a href="rewards.php" class="dashboard-link">View Rewards</a>
     </div>
   </div>

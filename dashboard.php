@@ -17,10 +17,30 @@ $twig = new \Twig\Environment($loader);
 $dashboard = [
   'booked_events' => [],
   'booked_count' => 0,
-  'next_event' => null
+  'next_event' => null,
+  'points' => 0,
+  'member_tier' => 'Bronze'
 ];
 
 $user_id = $_SESSION['user_id'];
+
+// Get the user's current points
+$stmt = $mysqli->prepare("SELECT points FROM user_points WHERE user_id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$points_result = $stmt->get_result()->fetch_assoc();
+$stmt->close();
+
+$dashboard['points'] = $points_result['points'] ?? 0;
+
+// Work out the user's reward tier
+if ($dashboard['points'] >= 1000) {
+  $dashboard['member_tier'] = "Gold";
+} elseif ($dashboard['points'] >= 500) {
+  $dashboard['member_tier'] = "Silver";
+} else {
+  $dashboard['member_tier'] = "Bronze";
+}
 
 // Get booked events
 $stmt = $mysqli->prepare("

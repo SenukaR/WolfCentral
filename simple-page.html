@@ -9,34 +9,35 @@
   <h2>Rewards Centre</h2>
   <p>Earn points by attending events and redeem rewards below.</p>
 
+  {% if message %}
+  <p style="font-weight: bold; color: #182d44;">{{ message }}</p>
+  {% endif %}
+
   <div class="profile-info" style="margin-top: 30px; text-align: left;">
-    <p><strong>Current Points:</strong> 1250</p>
-    <p><strong>Rewards Claimed:</strong> 3</p>
-    <p><strong>Member Tier:</strong> Gold</p>
+    <p><strong>Current Points:</strong> {{ points }}</p>
+    <p><strong>Rewards Claimed:</strong> {{ rewards_claimed }}</p>
+    <p><strong>Member Tier:</strong> {{ member_tier }}</p>
   </div>
 
   <div class="events-list" style="margin-top: 30px;">
 
+    {% for reward in rewards %}
     <div class="event-card">
-      <h3>Free Coffee Voucher</h3>
-      <p>Redeem a free drink from participating campus cafés.</p>
-      <p><strong>Cost:</strong> 250 Points</p>
-      <button class="btn-submit">Claim Reward</button>
-    </div>
+      <h3>{{ reward.name }}</h3>
+      <p>{{ reward.description }}</p>
+      <p><strong>Cost:</strong> {{ reward.points_cost }} Points</p>
 
-    <div class="event-card">
-      <h3>University Hoodie Discount</h3>
-      <p>Get 15% off official university merchandise.</p>
-      <p><strong>Cost:</strong> 500 Points</p>
-      <button class="btn-submit">Claim Reward</button>
+      <form method="POST" action="rewards.php">
+        <input type="hidden" name="reward_id" value="{{ reward.id }}">
+        <button class="btn-submit" type="submit">Claim Reward</button>
+      </form>
     </div>
-
-    <div class="event-card">
-      <h3>Priority Event Access</h3>
-      <p>Unlock early booking access for selected university events.</p>
-      <p><strong>Cost:</strong> 800 Points</p>
-      <button class="btn-submit">Claim Reward</button>
+    {% else %}
+    <div class="empty-state">
+      <h4>No rewards available</h4>
+      <p>Rewards will appear here once they are added to the database.</p>
     </div>
+    {% endfor %}
 
   </div>
 
